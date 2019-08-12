@@ -3,25 +3,53 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2668080E16071D61A7502BDC /* Pods_CheckinApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C60EC55BF565F5860984B70 /* Pods_CheckinApp.framework */; };
+		E71B197122FC8DC90068D319 /* TouchIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B197022FC8DC90068D319 /* TouchIDAuthentication.swift */; };
+		E71B197322FC8DD90068D319 /* ENV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B197222FC8DD90068D319 /* ENV.swift */; };
+		E71B197522FCA0880068D319 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B197422FCA0880068D319 /* EventTableViewCell.swift */; };
+		E71B197722FE03FC0068D319 /* Footballer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B197622FE03FC0068D319 /* Footballer.swift */; };
+		E71B197F2301B8E90068D319 /* ProfileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B197E2301B8E90068D319 /* ProfileCardViewController.swift */; };
+		E71B19812301D4E10068D319 /* 782-check-mark-success.json in Resources */ = {isa = PBXBuildFile; fileRef = E71B19802301D4E10068D319 /* 782-check-mark-success.json */; };
 		E7CFEF8422FC8B6B0040ADEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFEF8322FC8B6B0040ADEE /* AppDelegate.swift */; };
-		E7CFEF8622FC8B6B0040ADEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFEF8522FC8B6B0040ADEE /* ViewController.swift */; };
+		E7CFEF8622FC8B6B0040ADEE /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFEF8522FC8B6B0040ADEE /* EventViewController.swift */; };
 		E7CFEF8922FC8B6B0040ADEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7CFEF8722FC8B6B0040ADEE /* Main.storyboard */; };
 		E7CFEF8B22FC8B6D0040ADEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7CFEF8A22FC8B6D0040ADEE /* Assets.xcassets */; };
 		E7CFEF8E22FC8B6D0040ADEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7CFEF8C22FC8B6D0040ADEE /* LaunchScreen.storyboard */; };
+		E7CFEF9A22FC8BBD0040ADEE /* checkmark.json in Resources */ = {isa = PBXBuildFile; fileRef = E7CFEF9922FC8BBD0040ADEE /* checkmark.json */; };
+		E7CFEF9C22FC8BC80040ADEE /* LoginFormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFEF9B22FC8BC80040ADEE /* LoginFormTextField.swift */; };
+		E7CFEF9E22FC8C4A0040ADEE /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFEF9D22FC8C4A0040ADEE /* CheckinViewController.swift */; };
+		E7CFEFA022FC8C660040ADEE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFEF9F22FC8C660040ADEE /* LoginViewController.swift */; };
+		E7CFEFA222FC8C720040ADEE /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFEFA122FC8C720040ADEE /* KeychainPasswordItem.swift */; };
+		E7CFEFA422FC8C8E0040ADEE /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7CFEFA322FC8C8E0040ADEE /* Login.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EAE0CC082D26691AFB218E2 /* Pods-CheckinApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckinApp.debug.xcconfig"; path = "Target Support Files/Pods-CheckinApp/Pods-CheckinApp.debug.xcconfig"; sourceTree = "<group>"; };
+		6C60EC55BF565F5860984B70 /* Pods_CheckinApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckinApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85C87095E3A57BB8847091AA /* Pods-CheckinApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckinApp.release.xcconfig"; path = "Target Support Files/Pods-CheckinApp/Pods-CheckinApp.release.xcconfig"; sourceTree = "<group>"; };
+		E71B197022FC8DC90068D319 /* TouchIDAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentication.swift; sourceTree = "<group>"; };
+		E71B197222FC8DD90068D319 /* ENV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENV.swift; sourceTree = "<group>"; };
+		E71B197422FCA0880068D319 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		E71B197622FE03FC0068D319 /* Footballer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footballer.swift; sourceTree = "<group>"; };
+		E71B197E2301B8E90068D319 /* ProfileCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardViewController.swift; sourceTree = "<group>"; };
+		E71B19802301D4E10068D319 /* 782-check-mark-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "782-check-mark-success.json"; sourceTree = "<group>"; };
 		E7CFEF8022FC8B6B0040ADEE /* CheckinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7CFEF8322FC8B6B0040ADEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7CFEF8522FC8B6B0040ADEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7CFEF8522FC8B6B0040ADEE /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		E7CFEF8822FC8B6B0040ADEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7CFEF8A22FC8B6D0040ADEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7CFEF8D22FC8B6D0040ADEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7CFEF8F22FC8B6D0040ADEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7CFEF9922FC8BBD0040ADEE /* checkmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkmark.json; sourceTree = "<group>"; };
+		E7CFEF9B22FC8BC80040ADEE /* LoginFormTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFormTextField.swift; sourceTree = "<group>"; };
+		E7CFEF9D22FC8C4A0040ADEE /* CheckinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
+		E7CFEF9F22FC8C660040ADEE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E7CFEFA122FC8C720040ADEE /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		E7CFEFA322FC8C8E0040ADEE /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +57,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2668080E16071D61A7502BDC /* Pods_CheckinApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38B2530F53FB23BD8431764B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C60EC55BF565F5860984B70 /* Pods_CheckinApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0B5405BF46055BA8945B09E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0EAE0CC082D26691AFB218E2 /* Pods-CheckinApp.debug.xcconfig */,
+				85C87095E3A57BB8847091AA /* Pods-CheckinApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E7CFEF7722FC8B6B0040ADEE = {
 			isa = PBXGroup;
 			children = (
 				E7CFEF8222FC8B6B0040ADEE /* CheckinApp */,
 				E7CFEF8122FC8B6B0040ADEE /* Products */,
+				B0B5405BF46055BA8945B09E /* Pods */,
+				38B2530F53FB23BD8431764B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +102,58 @@
 		E7CFEF8222FC8B6B0040ADEE /* CheckinApp */ = {
 			isa = PBXGroup;
 			children = (
-				E7CFEF8322FC8B6B0040ADEE /* AppDelegate.swift */,
-				E7CFEF8522FC8B6B0040ADEE /* ViewController.swift */,
-				E7CFEF8722FC8B6B0040ADEE /* Main.storyboard */,
-				E7CFEF8A22FC8B6D0040ADEE /* Assets.xcassets */,
-				E7CFEF8C22FC8B6D0040ADEE /* LaunchScreen.storyboard */,
+				E7CFEF9822FC8BAC0040ADEE /* Core */,
+				E7CFEF9722FC8BA60040ADEE /* Controller */,
+				E7CFEF9622FC8BA00040ADEE /* View */,
+				E7CFEF9522FC8B940040ADEE /* Supporting files */,
 				E7CFEF8F22FC8B6D0040ADEE /* Info.plist */,
+				E71B197622FE03FC0068D319 /* Footballer.swift */,
 			);
 			path = CheckinApp;
+			sourceTree = "<group>";
+		};
+		E7CFEF9522FC8B940040ADEE /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFEF8A22FC8B6D0040ADEE /* Assets.xcassets */,
+				E71B19802301D4E10068D319 /* 782-check-mark-success.json */,
+				E7CFEF9922FC8BBD0040ADEE /* checkmark.json */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		E7CFEF9622FC8BA00040ADEE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFEF8722FC8B6B0040ADEE /* Main.storyboard */,
+				E7CFEF8C22FC8B6D0040ADEE /* LaunchScreen.storyboard */,
+				E7CFEFA322FC8C8E0040ADEE /* Login.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7CFEF9722FC8BA60040ADEE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFEF8522FC8B6B0040ADEE /* EventViewController.swift */,
+				E71B197422FCA0880068D319 /* EventTableViewCell.swift */,
+				E7CFEF9D22FC8C4A0040ADEE /* CheckinViewController.swift */,
+				E7CFEF9B22FC8BC80040ADEE /* LoginFormTextField.swift */,
+				E7CFEF9F22FC8C660040ADEE /* LoginViewController.swift */,
+				E7CFEFA122FC8C720040ADEE /* KeychainPasswordItem.swift */,
+				E71B197E2301B8E90068D319 /* ProfileCardViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E7CFEF9822FC8BAC0040ADEE /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFEF8322FC8B6B0040ADEE /* AppDelegate.swift */,
+				E71B197022FC8DC90068D319 /* TouchIDAuthentication.swift */,
+				E71B197222FC8DD90068D319 /* ENV.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7CFEF9222FC8B6D0040ADEE /* Build configuration list for PBXNativeTarget "CheckinApp" */;
 			buildPhases = (
+				4E2BF1C9CC4FB046285F2A5F /* [CP] Check Pods Manifest.lock */,
 				E7CFEF7C22FC8B6B0040ADEE /* Sources */,
 				E7CFEF7D22FC8B6B0040ADEE /* Frameworks */,
 				E7CFEF7E22FC8B6B0040ADEE /* Resources */,
+				F1280DB1807B1258870160E8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,18 +219,72 @@
 				E7CFEF8E22FC8B6D0040ADEE /* LaunchScreen.storyboard in Resources */,
 				E7CFEF8B22FC8B6D0040ADEE /* Assets.xcassets in Resources */,
 				E7CFEF8922FC8B6B0040ADEE /* Main.storyboard in Resources */,
+				E71B19812301D4E10068D319 /* 782-check-mark-success.json in Resources */,
+				E7CFEFA422FC8C8E0040ADEE /* Login.storyboard in Resources */,
+				E7CFEF9A22FC8BBD0040ADEE /* checkmark.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E2BF1C9CC4FB046285F2A5F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CheckinApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1280DB1807B1258870160E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheckinApp/Pods-CheckinApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheckinApp/Pods-CheckinApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheckinApp/Pods-CheckinApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E7CFEF7C22FC8B6B0040ADEE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CFEF8622FC8B6B0040ADEE /* ViewController.swift in Sources */,
+				E71B197522FCA0880068D319 /* EventTableViewCell.swift in Sources */,
+				E7CFEF8622FC8B6B0040ADEE /* EventViewController.swift in Sources */,
+				E7CFEF9C22FC8BC80040ADEE /* LoginFormTextField.swift in Sources */,
+				E7CFEF9E22FC8C4A0040ADEE /* CheckinViewController.swift in Sources */,
+				E71B197F2301B8E90068D319 /* ProfileCardViewController.swift in Sources */,
+				E7CFEFA022FC8C660040ADEE /* LoginViewController.swift in Sources */,
 				E7CFEF8422FC8B6B0040ADEE /* AppDelegate.swift in Sources */,
+				E71B197322FC8DD90068D319 /* ENV.swift in Sources */,
+				E7CFEFA222FC8C720040ADEE /* KeychainPasswordItem.swift in Sources */,
+				E71B197122FC8DC90068D319 /* TouchIDAuthentication.swift in Sources */,
+				E71B197722FE03FC0068D319 /* Footballer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +428,7 @@
 		};
 		E7CFEF9322FC8B6D0040ADEE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EAE0CC082D26691AFB218E2 /* Pods-CheckinApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,13 +440,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = alanshangguan.CheckinApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		E7CFEF9422FC8B6D0040ADEE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85C87095E3A57BB8847091AA /* Pods-CheckinApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -309,7 +459,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = alanshangguan.CheckinApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

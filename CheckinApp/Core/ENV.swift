@@ -10,15 +10,15 @@ import Foundation
 
 
 struct ENV {
-    private static let URL = "https://pac.hanyc.org"
+    private static let URL = "https://checkin.hanyc.org"
 //    private struct URL {
 //        static let development = "http://pac.test"
 //        static let production = "https://pac.hanyc.org"
 //    }
     
     private struct Routes {
-        static let payAPI = "/iospay"
-        static let indexAPI = "/api/donations"
+        static let events = "/api/events"
+        static let event = "/api/event/"
         static let saveAPI = "/iossave"
         static let loginAPI = "/login"
     }
@@ -31,8 +31,8 @@ struct ENV {
     struct Domains {
 
         
-        static let pay = URL + Routes.payAPI
-        static let index = URL + Routes.indexAPI
+        static let events = URL + Routes.events
+        static let event = URL + Routes.event
         static let save = URL + Routes.saveAPI
         static let login = URL + Routes.loginAPI
         

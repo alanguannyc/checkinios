@@ -14,7 +14,13 @@ class EventTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    @IBOutlet weak var eventName: UILabel!
+    
+    @IBOutlet weak var eventDate: UILabel!
+    
+    @IBOutlet weak var checkinStatus: UILabel!
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
