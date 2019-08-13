@@ -12,8 +12,12 @@ class EventTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        cellBackgroundView.layer.borderWidth = 0.5
+        cellBackgroundView.layer.cornerRadius = 4
+        cellBackgroundView.layer.shadowRadius = 1
+        cellBackgroundView.layer.shadowOpacity = 1
     }
+    @IBOutlet weak var cellBackgroundView: UIView!
     
     @IBOutlet weak var eventName: UILabel!
     

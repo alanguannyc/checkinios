@@ -62,10 +62,27 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if let indexPath = eventTableView.indexPathForSelectedRow {
             destinationVC.eventID = eventlist?[indexPath.row]["id"].int
+            if let attendees = eventlist?[indexPath.row]["attendees"].array {
+                for attendee in attendees {
+                    
+                    let firstname = attendee["firstName"].string
+                    let lastname = attendee["lastName"].string
+                    let companyname = attendee["company"].string
+                    let titlename = attendee["title"].string
+                    let emailname = attendee["email"].string
+                    let checkin = attendee["title"].bool
+                    destinationVC.totalAttendees.append(Attendees(firstName: firstname!, lastName: lastname!, company: companyname!, title: titlename!, email: emailname!, checkin: checkin))
+                    
+
+                    
+                }
+
+            }
             
         }
     }
     let apiURL = ENV.Domains.events
+    
     func updateEventList(){
         
         DispatchQueue.main.async {
@@ -74,12 +91,10 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     switch response.result {
                     case .success(let value):
                         let json = JSON(value)
-                        
-                        
-                        
                         self.eventlist = json
                         self.eventTableView.reloadData()
-
+                        
+                        
                         
                     case .failure( _):
                         return;

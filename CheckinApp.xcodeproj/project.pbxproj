@@ -11,9 +11,11 @@
 		E71B197122FC8DC90068D319 /* TouchIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B197022FC8DC90068D319 /* TouchIDAuthentication.swift */; };
 		E71B197322FC8DD90068D319 /* ENV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B197222FC8DD90068D319 /* ENV.swift */; };
 		E71B197522FCA0880068D319 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B197422FCA0880068D319 /* EventTableViewCell.swift */; };
-		E71B197722FE03FC0068D319 /* Footballer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B197622FE03FC0068D319 /* Footballer.swift */; };
+		E71B197722FE03FC0068D319 /* Attendees.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B197622FE03FC0068D319 /* Attendees.swift */; };
 		E71B197F2301B8E90068D319 /* ProfileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B197E2301B8E90068D319 /* ProfileCardViewController.swift */; };
 		E71B19812301D4E10068D319 /* 782-check-mark-success.json in Resources */ = {isa = PBXBuildFile; fileRef = E71B19802301D4E10068D319 /* 782-check-mark-success.json */; };
+		E71B1983230329CF0068D319 /* NameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B1982230329CF0068D319 /* NameTableViewCell.swift */; };
+		E78B8F492303556500678596 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B8F482303556500678596 /* FormViewController.swift */; };
 		E7CFEF8422FC8B6B0040ADEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFEF8322FC8B6B0040ADEE /* AppDelegate.swift */; };
 		E7CFEF8622FC8B6B0040ADEE /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFEF8522FC8B6B0040ADEE /* EventViewController.swift */; };
 		E7CFEF8922FC8B6B0040ADEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7CFEF8722FC8B6B0040ADEE /* Main.storyboard */; };
@@ -34,9 +36,11 @@
 		E71B197022FC8DC90068D319 /* TouchIDAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentication.swift; sourceTree = "<group>"; };
 		E71B197222FC8DD90068D319 /* ENV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENV.swift; sourceTree = "<group>"; };
 		E71B197422FCA0880068D319 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		E71B197622FE03FC0068D319 /* Footballer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footballer.swift; sourceTree = "<group>"; };
+		E71B197622FE03FC0068D319 /* Attendees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attendees.swift; sourceTree = "<group>"; };
 		E71B197E2301B8E90068D319 /* ProfileCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardViewController.swift; sourceTree = "<group>"; };
 		E71B19802301D4E10068D319 /* 782-check-mark-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "782-check-mark-success.json"; sourceTree = "<group>"; };
+		E71B1982230329CF0068D319 /* NameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTableViewCell.swift; sourceTree = "<group>"; };
+		E78B8F482303556500678596 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		E7CFEF8022FC8B6B0040ADEE /* CheckinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7CFEF8322FC8B6B0040ADEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7CFEF8522FC8B6B0040ADEE /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +111,7 @@
 				E7CFEF9622FC8BA00040ADEE /* View */,
 				E7CFEF9522FC8B940040ADEE /* Supporting files */,
 				E7CFEF8F22FC8B6D0040ADEE /* Info.plist */,
-				E71B197622FE03FC0068D319 /* Footballer.swift */,
+				E71B197622FE03FC0068D319 /* Attendees.swift */,
 			);
 			path = CheckinApp;
 			sourceTree = "<group>";
@@ -138,10 +142,12 @@
 				E7CFEF8522FC8B6B0040ADEE /* EventViewController.swift */,
 				E71B197422FCA0880068D319 /* EventTableViewCell.swift */,
 				E7CFEF9D22FC8C4A0040ADEE /* CheckinViewController.swift */,
+				E78B8F482303556500678596 /* FormViewController.swift */,
 				E7CFEF9B22FC8BC80040ADEE /* LoginFormTextField.swift */,
 				E7CFEF9F22FC8C660040ADEE /* LoginViewController.swift */,
 				E7CFEFA122FC8C720040ADEE /* KeychainPasswordItem.swift */,
 				E71B197E2301B8E90068D319 /* ProfileCardViewController.swift */,
+				E71B1982230329CF0068D319 /* NameTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,11 +286,13 @@
 				E7CFEF9E22FC8C4A0040ADEE /* CheckinViewController.swift in Sources */,
 				E71B197F2301B8E90068D319 /* ProfileCardViewController.swift in Sources */,
 				E7CFEFA022FC8C660040ADEE /* LoginViewController.swift in Sources */,
+				E71B1983230329CF0068D319 /* NameTableViewCell.swift in Sources */,
 				E7CFEF8422FC8B6B0040ADEE /* AppDelegate.swift in Sources */,
 				E71B197322FC8DD90068D319 /* ENV.swift in Sources */,
 				E7CFEFA222FC8C720040ADEE /* KeychainPasswordItem.swift in Sources */,
 				E71B197122FC8DC90068D319 /* TouchIDAuthentication.swift in Sources */,
-				E71B197722FE03FC0068D319 /* Footballer.swift in Sources */,
+				E71B197722FE03FC0068D319 /* Attendees.swift in Sources */,
+				E78B8F492303556500678596 /* FormViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

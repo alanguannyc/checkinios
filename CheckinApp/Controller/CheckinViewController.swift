@@ -15,16 +15,26 @@ import NVActivityIndicatorView
 class CheckinViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, profileDelegation{
     
     func resetSearch() {
-        <#code#>
+        nameSearchField.text = ""
+        nameTable.isHidden = true
     }
     
+    @IBAction func addMoreButtonPressed(_ sender: Any) {
+        
+    }
     
     
     var eventID: Int?
     var attendees: JSON?
-
+    var showForm = false
+    var showAddmoreButton = false
+    var totalAttendees = [Attendees]()
+    var attendeeToPass : Attendees?
     
+    @IBOutlet weak var addMoreLabel: UIStackView!
+    @IBOutlet weak var addMoreButton: UIButton!
     
+    @IBOutlet weak var addMoreButtonHeight: NSLayoutConstraint!
     let activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50), type: .ballClipRotatePulse, color: .lightGray)
     
     
@@ -33,7 +43,8 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var nameTable: UITableView!
     
-    var fileredFootballer = [Footballer]()
+    @IBOutlet weak var cellView: UIView!
+    var filteredAttendees = [Attendees]()
     
     
     override func viewDidLoad() {
@@ -43,16 +54,20 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
         nameTable.delegate = self
         nameSearchField.delegate = self
         definesPresentationContext = true
-        
+        nameTable.isHidden = true
+        addMoreLabel.isHidden = true
+        nameTable.rowHeight = UITableViewAutomaticDimension
+        nameTable.estimatedRowHeight = 600
         nameSearchField.addTarget(self, action: #selector(CheckinViewController.nameSearchStarted(for :)), for: UIControl.Event.editingChanged)
+        
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 20))
+        nameSearchField.leftView = paddingView
+        nameSearchField.leftViewMode = .always
         
     }
     
     @objc func nameSearchStarted(for searchText: UITextField){
-//        fileredFootballer = allPlayers.filter {
-//            player in
-//            return player.name.lowercased().contains(Character((searchText.text?.lowercased())!))
-//        }
+
         
        
         activityIndicatorView.center = view.center
@@ -62,9 +77,21 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.activityIndicatorView.stopAnimating()
             if let content = searchText.text {
-                self.fileredFootballer = content.isEmpty ? allPlayers : allPlayers.filter { (Footballer) -> Bool in
-                    return Footballer.name.range(of: content, options: .caseInsensitive, range: nil, locale: nil) != nil
+                self.filteredAttendees = content.isEmpty == true ? self.totalAttendees : self.totalAttendees.filter { (Attendee) -> Bool in
+                    return Attendee.firstName.range(of: content, options: .caseInsensitive, range: nil, locale: nil) != nil ||
+                    Attendee.lastName.range(of: content, options: .caseInsensitive, range: nil, locale: nil) != nil
                 }
+            }
+            if (self.filteredAttendees.isEmpty) {
+                self.addMoreLabel.isHidden = false
+                self.nameTable.isHidden = true
+                UIView.animate(withDuration: 1.0, animations: {
+                    self.addMoreLabel.center.y = self.view.center.y - 50.0
+
+                })
+            } else {
+                self.addMoreLabel.isHidden = true
+                self.nameTable.isHidden = false
             }
             self.nameTable.reloadData()
         }
@@ -75,28 +102,37 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
        
     }
     
-    
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fileredFootballer.count
+        return filteredAttendees.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = nameTable.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = fileredFootballer[indexPath.row].name
-        
-        return cell!
+        let cell = nameTable.dequeueReusableCell(withIdentifier: "cell") as! NameTableViewCell
+        cell.nametableName.text = filteredAttendees[indexPath.row].firstName + " " + filteredAttendees[indexPath.row].lastName
+        cell.nametableTitle.text = filteredAttendees[indexPath.row].title + " at " +  filteredAttendees[indexPath.row].company
+        cell.nametableCheckin.text = filteredAttendees[indexPath.row].checkin == true ? "Already Checkedin" : ""
+        return cell
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         self.present(ProfileCardViewController(), animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "profileID") {
-            if let segue.destination =
+            if let vc = segue.destination as? ProfileCardViewController, let attendeeIndex = nameTable.indexPathForSelectedRow?.row {
+                vc.profileDelegate = self
+                vc.profileAttendee = filteredAttendees[attendeeIndex]
+                
+            }
         }
     }
     
@@ -112,7 +148,7 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
                     case .success(let value):
                         let json = JSON(value)
                         self.attendees = json["attendees"]
-                        self.eventNameLabel.text = json["name"].string
+                        self.eventNameLabel.text = json["name"].string! + "Self-Checkin"
                         
                         
                     case .failure( _):

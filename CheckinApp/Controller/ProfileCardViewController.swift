@@ -17,19 +17,41 @@ protocol profileDelegation {
 class ProfileCardViewController: UIViewController {
     
     var profileDelegate : profileDelegation?
+    var profileAttendee : Attendees?
     
     let animationView = LOTAnimationView(name: "checkmark")
     var timer: Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
-        var cardview = createViewCard()
+        let cardview = createViewCard()
         cardview.center = view.center
         view.addSubview(cardview)
+        
+        
+        if let button = checkinbutton {
+            button.layer.borderColor = UIColor.clear.cgColor
+            button.layer.cornerRadius = 6
+            button.layer.borderWidth = 0.5
+            
+            button.titleLabel!.numberOfLines = 1;
+            button.titleLabel!.adjustsFontSizeToFitWidth = true
+            
+//            let shadowSize: CGFloat = 20
+//            let contactRect = CGRect(x: -shadowSize, y: button.bounds.height - (shadowSize * 0.4), width: button.bounds.width + shadowSize * 2, height: shadowSize)
+//            button.layer.shadowPath = UIBezierPath(ovalIn: contactRect).cgPath
+            button.layer.shadowRadius = 5
+            button.layer.shadowOpacity = 1
+            
+        }
         
         
         animationView.center = self.view.center
         self.view.addSubview(animationView)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fillProfileCard()
     }
     
     @IBOutlet weak var stackedContent: UIStackView!
@@ -42,22 +64,28 @@ class ProfileCardViewController: UIViewController {
     
     @IBOutlet weak var email: UILabel!
     
+    @IBOutlet weak var checkinbutton: UIButton!
+    
+    
     @IBAction func ConfirmButtonPressed(_ sender: Any) {
         createLoadingIndicator()
-//        animationView.play { (true) in
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-//                self.animationView.stop()
-//            }
-//
-//        }
+
         
         
-//        self.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
 
+    }
+    
+    func fillProfileCard () {
+        firstName.text = (profileAttendee?.firstName)! + " " + (profileAttendee?.lastName)!
+        
+        email.text = profileAttendee?.email
+        titleLabel.text = profileAttendee?.title
+        company.text = profileAttendee?.company
     }
     
     func createLoadingIndicator() {
@@ -74,21 +102,20 @@ class ProfileCardViewController: UIViewController {
             activityIndicatorView.stopAnimating()
             
             self.animationView.play { (true) in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     self.animationView.stop()
+                    self.profileDelegate?.resetSearch()
+                    self.dismiss(animated: true, completion: nil)
                 }
                 
             }
             
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-           
-            
-        }
+       
     }
     
     func createViewCard() -> UIView {
-        let width: CGFloat = 250
+        let width: CGFloat = 350
         let height: CGFloat = 300
         
         let card = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
