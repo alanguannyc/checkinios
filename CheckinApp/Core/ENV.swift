@@ -18,8 +18,9 @@ struct ENV {
     
     private struct Routes {
         static let events = "/api/events"
+        static let attendees = "/api/attendees"
         static let event = "/api/event/"
-        static let saveAPI = "/iossave"
+        static let checkinAttendee = "/api/attendee/"
         static let loginAPI = "/login"
     }
     
@@ -32,8 +33,9 @@ struct ENV {
 
         
         static let events = URL + Routes.events
+        static let attendees = URL + Routes.attendees
         static let event = URL + Routes.event
-        static let save = URL + Routes.saveAPI
+        static let checkinAttendee = URL + Routes.checkinAttendee
         static let login = URL + Routes.loginAPI
         
 //        struct Development {

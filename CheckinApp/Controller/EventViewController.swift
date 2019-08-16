@@ -10,7 +10,12 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, profileDelegation  {
+    func resetSearch() {
+        updateEventList()
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventlist?.count ?? 1
     }
@@ -58,26 +63,32 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         let destinationVC = segue.destination as! CheckinViewController
         
         if let indexPath = eventTableView.indexPathForSelectedRow {
             destinationVC.eventID = eventlist?[indexPath.row]["id"].int
-            if let attendees = eventlist?[indexPath.row]["attendees"].array {
-                for attendee in attendees {
-                    
-                    let firstname = attendee["firstName"].string
-                    let lastname = attendee["lastName"].string
-                    let companyname = attendee["company"].string
-                    let titlename = attendee["title"].string
-                    let emailname = attendee["email"].string
-                    let checkin = attendee["title"].bool
-                    destinationVC.totalAttendees.append(Attendees(firstName: firstname!, lastName: lastname!, company: companyname!, title: titlename!, email: emailname!, checkin: checkin))
-                    
-
-                    
-                }
-
-            }
+//            if let attendees = eventlist?[indexPath.row]["attendees"].array {
+//                
+//                
+//                for attendee in attendees {
+//                    let id = attendee["id"].int!
+//                    
+//                    let eventID = Int(attendee["event_id"].string!)
+//                    let firstname = attendee["firstName"].string
+//                    let lastname = attendee["lastName"].string
+//                    let companyname = attendee["company"].string
+//                    let titlename = attendee["title"].string
+//                    let emailname = attendee["email"].string
+//                    let checkin = attendee["checkin"].boolValue
+//                    
+//                    destinationVC.totalAttendees.append(Attendees(id: id, event_id: Int(eventID!), firstName: firstname!, lastName: lastname!, company: companyname!, title: titlename!, email: emailname!, checkin: checkin))
+//                    
+//
+//                    
+//                }
+//
+//            }
             
         }
     }

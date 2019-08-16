@@ -8,13 +8,17 @@
 
 import Foundation
 
-struct Attendees {
+struct Attendees: Codable {
+    var id : Int?
+    var event_id : Int
     var firstName: String
     var lastName: String
     var company: String
     var title: String
     var email: String
     var checkin: Bool?
+    
+    
 }
 
 

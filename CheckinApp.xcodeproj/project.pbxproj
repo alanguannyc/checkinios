@@ -16,6 +16,7 @@
 		E71B19812301D4E10068D319 /* 782-check-mark-success.json in Resources */ = {isa = PBXBuildFile; fileRef = E71B19802301D4E10068D319 /* 782-check-mark-success.json */; };
 		E71B1983230329CF0068D319 /* NameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B1982230329CF0068D319 /* NameTableViewCell.swift */; };
 		E78B8F492303556500678596 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B8F482303556500678596 /* FormViewController.swift */; };
+		E78B8F4B23070A6000678596 /* checkmarkicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E78B8F4A23070A6000678596 /* checkmarkicon.png */; };
 		E7CFEF8422FC8B6B0040ADEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFEF8322FC8B6B0040ADEE /* AppDelegate.swift */; };
 		E7CFEF8622FC8B6B0040ADEE /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFEF8522FC8B6B0040ADEE /* EventViewController.swift */; };
 		E7CFEF8922FC8B6B0040ADEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7CFEF8722FC8B6B0040ADEE /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		E71B19802301D4E10068D319 /* 782-check-mark-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "782-check-mark-success.json"; sourceTree = "<group>"; };
 		E71B1982230329CF0068D319 /* NameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTableViewCell.swift; sourceTree = "<group>"; };
 		E78B8F482303556500678596 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		E78B8F4A23070A6000678596 /* checkmarkicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmarkicon.png; sourceTree = "<group>"; };
 		E7CFEF8022FC8B6B0040ADEE /* CheckinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7CFEF8322FC8B6B0040ADEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7CFEF8522FC8B6B0040ADEE /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +113,6 @@
 				E7CFEF9622FC8BA00040ADEE /* View */,
 				E7CFEF9522FC8B940040ADEE /* Supporting files */,
 				E7CFEF8F22FC8B6D0040ADEE /* Info.plist */,
-				E71B197622FE03FC0068D319 /* Attendees.swift */,
 			);
 			path = CheckinApp;
 			sourceTree = "<group>";
@@ -121,6 +122,7 @@
 			children = (
 				E7CFEF8A22FC8B6D0040ADEE /* Assets.xcassets */,
 				E71B19802301D4E10068D319 /* 782-check-mark-success.json */,
+				E78B8F4A23070A6000678596 /* checkmarkicon.png */,
 				E7CFEF9922FC8BBD0040ADEE /* checkmark.json */,
 			);
 			path = "Supporting files";
@@ -155,6 +157,7 @@
 		E7CFEF9822FC8BAC0040ADEE /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E71B197622FE03FC0068D319 /* Attendees.swift */,
 				E7CFEF8322FC8B6B0040ADEE /* AppDelegate.swift */,
 				E71B197022FC8DC90068D319 /* TouchIDAuthentication.swift */,
 				E71B197222FC8DD90068D319 /* ENV.swift */,
@@ -227,6 +230,7 @@
 				E7CFEF8922FC8B6B0040ADEE /* Main.storyboard in Resources */,
 				E71B19812301D4E10068D319 /* 782-check-mark-success.json in Resources */,
 				E7CFEFA422FC8C8E0040ADEE /* Login.storyboard in Resources */,
+				E78B8F4B23070A6000678596 /* checkmarkicon.png in Resources */,
 				E7CFEF9A22FC8BBD0040ADEE /* checkmark.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,7 +453,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = alanshangguan.CheckinApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -468,7 +472,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = alanshangguan.CheckinApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

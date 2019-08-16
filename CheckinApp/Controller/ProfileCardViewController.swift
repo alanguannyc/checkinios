@@ -9,6 +9,7 @@
 import UIKit
 import Lottie
 import NVActivityIndicatorView
+import Alamofire
 
 protocol profileDelegation {
     func resetSearch()
@@ -20,6 +21,7 @@ class ProfileCardViewController: UIViewController {
     var profileAttendee : Attendees?
     
     let animationView = LOTAnimationView(name: "checkmark")
+    
     var timer: Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +70,7 @@ class ProfileCardViewController: UIViewController {
     
     
     @IBAction func ConfirmButtonPressed(_ sender: Any) {
-        createLoadingIndicator()
+        checkInAttendee()
 
         
         
@@ -104,8 +106,9 @@ class ProfileCardViewController: UIViewController {
             self.animationView.play { (true) in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     self.animationView.stop()
-                    self.profileDelegate?.resetSearch()
+                    
                     self.dismiss(animated: true, completion: nil)
+                    self.profileDelegate?.resetSearch()
                 }
                 
             }
@@ -114,9 +117,61 @@ class ProfileCardViewController: UIViewController {
        
     }
     
+    func checkInAttendee() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        let date = Date()
+        let checkedinDate = formatter.string(from: date)
+        
+        let apiURL = ENV.Domains.checkinAttendee + String(profileAttendee!.id!) + "/edit"
+        
+        let params = [
+            "firstName" : profileAttendee!.firstName,
+            "lastName" : profileAttendee!.lastName,
+            "email" : profileAttendee!.email,
+            "title" : profileAttendee!.title,
+            "company" : profileAttendee!.company,
+            "checkin" : 1,
+            "event_id" : profileAttendee!.event_id,
+            "checkedin_at" : checkedinDate,
+            ] as [String : Any]
+        
+        let width: CGFloat = 50
+        let height: CGFloat = 50
+        
+        
+        let activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: width, height: height), type: .ballClipRotatePulse, color: .lightGray)
+        activityIndicatorView.center = view.center
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+        
+        Alamofire.request(apiURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+            switch response .result {
+            case .success( _) :
+                activityIndicatorView.stopAnimating()
+                self.profileDelegate?.resetSearch()
+                self.animationView.play { (true) in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        self.animationView.stop()
+                        
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    
+                }
+                
+            case .failure(let error) :
+                let error = error as Error
+                print(error.localizedDescription)
+                
+            }
+        }
+        
+        
+    }
+    
     func createViewCard() -> UIView {
-        let width: CGFloat = 350
-        let height: CGFloat = 300
+        let width: CGFloat = 550
+        let height: CGFloat = 500
         
         let card = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         

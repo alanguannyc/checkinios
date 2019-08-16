@@ -1,11 +1,3 @@
-//
-//  LoginFormTextField.swift
-//  pacios
-//
-//  Created by Alan Guan on 3/2/19.
-//  Copyright © 2019 Alan Guan. All rights reserved.
-//
-
 import UIKit
 
 class LoginFormTextField: UITextField {

@@ -12,15 +12,23 @@ import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
 
-class CheckinViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, profileDelegation{
+class CheckinViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, profileDelegation, formCleanDelegation{
     
     func resetSearch() {
         nameSearchField.text = ""
         nameTable.isHidden = true
+        addMoreLabel.isHidden = true
+        updateEventList()
+        
+        nameTable.reloadData()
+    }
+    
+    func cleanForm() {
+        resetSearch()
     }
     
     @IBAction func addMoreButtonPressed(_ sender: Any) {
-        
+//        self.present(FormViewController(),animated: true)
     }
     
     
@@ -56,6 +64,7 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
         definesPresentationContext = true
         nameTable.isHidden = true
         addMoreLabel.isHidden = true
+        addMoreLabel.alpha = 0
         nameTable.rowHeight = UITableViewAutomaticDimension
         nameTable.estimatedRowHeight = 600
         nameSearchField.addTarget(self, action: #selector(CheckinViewController.nameSearchStarted(for :)), for: UIControl.Event.editingChanged)
@@ -63,6 +72,8 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 20))
         nameSearchField.leftView = paddingView
         nameSearchField.leftViewMode = .always
+        
+        
         
     }
     
@@ -86,8 +97,8 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.addMoreLabel.isHidden = false
                 self.nameTable.isHidden = true
                 UIView.animate(withDuration: 1.0, animations: {
-                    self.addMoreLabel.center.y = self.view.center.y - 50.0
-
+//                    self.addMoreLabel.center.y = self.view.center.y - 50.0
+                        self.addMoreLabel.alpha = 1
                 })
             } else {
                 self.addMoreLabel.isHidden = true
@@ -113,10 +124,12 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = nameTable.dequeueReusableCell(withIdentifier: "cell") as! NameTableViewCell
         cell.nametableName.text = filteredAttendees[indexPath.row].firstName + " " + filteredAttendees[indexPath.row].lastName
         cell.nametableTitle.text = filteredAttendees[indexPath.row].title + " at " +  filteredAttendees[indexPath.row].company
         cell.nametableCheckin.text = filteredAttendees[indexPath.row].checkin == true ? "Already Checkedin" : ""
+        cell.checkmarkImage.isHidden = filteredAttendees[indexPath.row].checkin == true ? false : true
         return cell
         
     }
@@ -126,12 +139,21 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
         self.present(ProfileCardViewController(), animated: true, completion: nil)
     }
     
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "profileID") {
             if let vc = segue.destination as? ProfileCardViewController, let attendeeIndex = nameTable.indexPathForSelectedRow?.row {
                 vc.profileDelegate = self
                 vc.profileAttendee = filteredAttendees[attendeeIndex]
                 
+                
+            }
+        } else if (segue.identifier == "addMoreForm") {
+            if let destinationNavigationController = segue.destination as? UINavigationController {
+                let targetController = destinationNavigationController.topViewController as! FormViewController
+                targetController.event_id = eventID
+                targetController.formCleaner = self
             }
         }
     }
@@ -140,7 +162,7 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func updateEventList(){
         let apiURL = ENV.Domains.event + String(eventID!)
-
+        totalAttendees = [Attendees]()
         DispatchQueue.main.async {
             Alamofire.request(apiURL, method: .get)
                 .responseJSON { response in
@@ -149,7 +171,27 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
                         let json = JSON(value)
                         self.attendees = json["attendees"]
                         self.eventNameLabel.text = json["name"].string! + "Self-Checkin"
-                        
+                        if let attendees = self.attendees!.array {
+                            
+                            
+                            for attendee in attendees {
+                                let id = attendee["id"].int!
+                                
+                                let eventID = Int(attendee["event_id"].string!)
+                                let firstname = attendee["firstName"].string
+                                let lastname = attendee["lastName"].string
+                                let companyname = attendee["company"].string
+                                let titlename = attendee["title"].string
+                                let emailname = attendee["email"].string
+                                let checkin = attendee["checkin"].boolValue
+                                
+                                self.totalAttendees.append(Attendees(id: id, event_id: Int(eventID!), firstName: firstname!, lastName: lastname!, company: companyname!, title: titlename!, email: emailname!, checkin: checkin))
+                                
+                                
+                                
+                            }
+                            
+                        }
                         
                     case .failure( _):
                         return;

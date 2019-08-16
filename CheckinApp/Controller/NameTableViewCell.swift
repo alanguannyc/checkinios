@@ -20,6 +20,7 @@ class NameTableViewCell: UITableViewCell {
     @IBOutlet weak var nametableName: UILabel!
     @IBOutlet weak var nametableCheckin: UILabel!
     
+    @IBOutlet weak var checkmarkImage: UIImageView!
     @IBOutlet weak var nametableTitle: UILabel!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
