@@ -201,7 +201,7 @@ class LoginViewController: UIViewController {
         ]
         
         Alamofire.request(URL, method: .post, parameters: params, encoding: JSONEncoding.default)
-            .validate(statusCode: 200..<300)
+            .validate(statusCode: 200..<500)
             .responseJSON { response in
             switch response.result {
             case .success:

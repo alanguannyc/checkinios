@@ -11,17 +11,14 @@ import Foundation
 
 struct ENV {
     private static let URL = "https://checkin.hanyc.org"
-//    private struct URL {
-//        static let development = "http://pac.test"
-//        static let production = "https://pac.hanyc.org"
-//    }
+
     
     private struct Routes {
         static let events = "/api/events"
         static let attendees = "/api/attendees"
         static let event = "/api/event/"
         static let checkinAttendee = "/api/attendee/"
-        static let loginAPI = "/login"
+        static let loginAPI = "/api/login"
     }
     
     struct stripe {

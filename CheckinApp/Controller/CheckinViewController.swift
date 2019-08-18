@@ -38,6 +38,7 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
     var showAddmoreButton = false
     var totalAttendees = [Attendees]()
     var attendeeToPass : Attendees?
+    var passcode : String?
     
     @IBOutlet weak var addMoreLabel: UIStackView!
     @IBOutlet weak var addMoreButton: UIButton!
@@ -136,10 +137,33 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.present(ProfileCardViewController(), animated: true, completion: nil)
+//        self.present(ProfileCardViewController(), animated: true, completion: nil)
     }
     
-
+    @IBAction func ExitButtonPressed(_ sender: Any) {
+        authenticatePasscode()
+        
+    }
+    
+    func authenticatePasscode(){
+        let alert = PasswordAlert(alertTitle: "Enter your safe code", alertMessage: nil )
+        let warning = PasswordAlert(alertTitle: "Your passcode doesn't match.", alertMessage: "Try again?")
+        
+        alert.askForPasscode(view: self, cancelHandler: nil) { (result) in
+            if (result == self.passcode) {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                
+                warning.showWarning(view: self){ (yes : Bool) in
+                    if (yes) {
+                        self.authenticatePasscode()
+                    }
+                    
+                }
+            }
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "profileID") {
@@ -170,7 +194,7 @@ class CheckinViewController: UIViewController, UITableViewDataSource, UITableVie
                     case .success(let value):
                         let json = JSON(value)
                         self.attendees = json["attendees"]
-                        self.eventNameLabel.text = json["name"].string! + "Self-Checkin"
+                        self.eventNameLabel.text = json["name"].string! + " check-in"
                         if let attendees = self.attendees!.array {
                             
                             

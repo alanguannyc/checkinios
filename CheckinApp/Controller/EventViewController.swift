@@ -31,6 +31,8 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         updateEventList()
         
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,17 +59,79 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         
     }
-    
+    var alert = PasswordAlert(alertTitle: "Set up your safe code", alertMessage: nil )
+
+    var value : String?
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "checkin", sender: self)
+        alert.askForPasscode(view: self) { (result) in
+            self.value = result
+            if(self.value != ""){
+                self.performSegue(withIdentifier: "checkin", sender: self)
+            } else {
+                
+            }
+            
+        }
+//        alert.showAlert(view: self) { result in
+//            switch result {
+//            case .success(let count):
+//                print(count)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//        showAlert(alertTitle: "Set up your safe code", alertMessage: nil )
+        
+        
+        
+        
+    }
+    
+    func showAlert(alertTitle: String, alertMessage: String?){
+        var userIdTextField: UITextField?
+        
+        
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+            
+            if let userInput = userIdTextField!.text {
+                self.value = userInput
+                
+                
+            }
+        })
+        
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+            print("Cancel button tapped")
+        }
+        
+        let dialog = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        
+        
+        dialog.addAction(ok)
+        dialog.addAction(cancel)
+        dialog.addTextField { (textField) -> Void in
+            
+            userIdTextField = textField
+            userIdTextField?.placeholder = "Type in your ID"
+        }
+        
+        self.present(dialog, animated: true, completion: nil)
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        
         
         let destinationVC = segue.destination as! CheckinViewController
         
         if let indexPath = eventTableView.indexPathForSelectedRow {
             destinationVC.eventID = eventlist?[indexPath.row]["id"].int
+            destinationVC.passcode = value
 //            if let attendees = eventlist?[indexPath.row]["attendees"].array {
 //                
 //                
